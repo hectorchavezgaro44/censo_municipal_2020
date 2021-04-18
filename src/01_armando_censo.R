@@ -1,0 +1,9 @@
+inegi <- readr::read_csv("~/Downloads/ITER_NALCSV20.csv")
+
+
+censo_municipios <- inegi %>%
+  janitor::clean_names() %>% 
+  filter(loc=="0000" & mun!="0000" & nom_loc!="Total de la Entidad" & entidad!="00") 
+
+
+save(censo_municipios, file=here::here("out", "censo_municipios.rda"))
