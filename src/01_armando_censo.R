@@ -7,3 +7,11 @@ censo_municipios <- inegi %>%
 
 
 save(censo_municipios, file=here::here("out", "censo_municipios.rda"))
+
+
+vacu <- censo_municipios %>% 
+        filter(nom_ent=="Ciudad de México")
+
+vacu <- vacu %>% 
+        summarise(across(entidad:altitud, ~as.character(.x)),
+                  across(pobtot:vph_sintic, ~as.numeric(.x)))
