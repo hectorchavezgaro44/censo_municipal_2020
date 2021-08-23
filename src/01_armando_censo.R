@@ -24,3 +24,6 @@ vacu <- censo_municipios %>%
 vacu <- vacu %>% 
         summarise(across(entidad:altitud, ~as.character(.x)),
                   across(pobtot:vph_sintic, ~as.numeric(.x)))
+
+
+#a ver si ya 
